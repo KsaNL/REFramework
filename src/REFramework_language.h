@@ -1,4 +1,4 @@
-﻿#define REF_LANG_CN // ChineseSimplified 
+﻿//#define REF_LANG_CN // ChineseSimplified 
 //#define REF_LANG_TW // Chinese 
 //#define REF_LANG_JP // Japanese
 
