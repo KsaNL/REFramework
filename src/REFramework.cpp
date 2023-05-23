@@ -38,7 +38,6 @@ extern "C" {
 #include "mods/REFrameworkConfig.hpp"
 #include "mods/IntegrityCheckBypass.hpp"
 #include "REFramework.hpp"
-#include "REFramework_language.h"
 
 namespace fs = std::filesystem;
 using namespace std::literals;
