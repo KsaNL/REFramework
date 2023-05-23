@@ -123,7 +123,7 @@ public:
 public:
     ObjectExplorer();
 
-    std::string_view get_name() const override { return "ObjectExplorer"; };
+    std::string_view get_name() const override { return "ObjectExplorer " REF_LANG_OBJECTEXPLORER; };
 
     void on_draw_dev_ui() override;
     void on_frame() override;

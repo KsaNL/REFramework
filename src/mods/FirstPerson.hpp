@@ -25,7 +25,7 @@ public:
 
     void toggle();
 
-    std::string_view get_name() const override { return "FirstPerson"; };
+    std::string_view get_name() const override { return "FirstPerson " REF_LANG_FIRSTPERSON; };
     std::optional<std::string> on_initialize() override;
 
     void on_frame() override;
@@ -155,7 +155,7 @@ private:
     
     //std::unique_ptr<Patch> m_disableVignettePatch{};
 
-    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name("Enabled")) };
+    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name(REF_LANG_ENABLED)) };
     const ModKey::Ptr m_toggle_key{ ModKey::create(generate_name("ToggleKey")) };
     void on_disabled();
     bool m_wants_disable{false};

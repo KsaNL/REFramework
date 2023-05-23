@@ -38,6 +38,7 @@ extern "C" {
 #include "mods/REFrameworkConfig.hpp"
 #include "mods/IntegrityCheckBypass.hpp"
 #include "REFramework.hpp"
+#include "REFramework_language.h"
 
 namespace fs = std::filesystem;
 using namespace std::literals;
@@ -1127,9 +1128,9 @@ void REFramework::draw_ui() {
     }
 
     ImGui::SetNextWindowPos(ImVec2(50, 50), ImGuiCond_::ImGuiCond_Once);
-    ImGui::SetNextWindowSize(ImVec2(300, 500), ImGuiCond_::ImGuiCond_Once);
+    ImGui::SetNextWindowSize(ImVec2(360, 500), ImGuiCond_::ImGuiCond_Once);
     bool is_open = true;
-    ImGui::Begin("REFramework", &is_open);
+    ImGui::Begin("REFramework " REF_LANG_REFRAMEWORK, &is_open);
     ImGui::Text("Default Menu Key: Insert");
     ImGui::Checkbox("Transparency", &m_ui_option_transparent);
     ImGui::SameLine();
@@ -1173,7 +1174,7 @@ void REFramework::draw_ui() {
 }
 
 void REFramework::draw_about() {
-    if (!ImGui::CollapsingHeader("About")) {
+    if (!ImGui::CollapsingHeader("About " REF_LANG_ABOUT)) {
         return;
     }
 
@@ -1184,7 +1185,7 @@ void REFramework::draw_about() {
     ImGui::Text("https://github.com/praydog/REFramework");
     ImGui::Text("http://praydog.com");
 
-    if (ImGui::CollapsingHeader("Licenses")) {
+    if (ImGui::CollapsingHeader("Licenses " REF_LANG_LICENSES)) {
         ImGui::TreePush("Licenses");
 
         struct License {

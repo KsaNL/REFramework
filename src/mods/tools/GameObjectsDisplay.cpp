@@ -40,13 +40,15 @@ void GameObjectsDisplay::on_config_save(utility::Config& cfg) {
 void GameObjectsDisplay::on_draw_dev_ui() {
     ImGui::SetNextItemOpen(false, ImGuiCond_::ImGuiCond_Once);
 
-    if (!ImGui::CollapsingHeader(get_name().data())) {
-        return;
+    if (ImGui::TreeNode(get_name().data())) {
+
+        if (m_enabled->draw(REF_LANG_ENABLED) && !m_enabled->value()) {
+            // todo
+        }
+
+        ImGui::TreePop();
     }
 
-    if (m_enabled->draw("Enabled") && !m_enabled->value()) {
-        // todo
-    }
 }
 
 void GameObjectsDisplay::on_frame() {

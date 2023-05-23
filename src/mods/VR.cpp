@@ -3636,7 +3636,7 @@ void VR::on_draw_ui() {
         return;
     }
 
-    ImGui::TextWrapped("Hardware scheduling: %s", m_has_hw_scheduling ? "Enabled" : "Disabled");
+    ImGui::TextWrapped("Hardware scheduling: %s", m_has_hw_scheduling ? REF_LANG_ENABLED : REF_LANG_DISABLED);
 
     if (m_has_hw_scheduling) {
         ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -3727,7 +3727,7 @@ void VR::on_draw_ui() {
 
     if (ImGui::TreeNode("Desktop Recording Fix")) {
         ImGui::PushID("Desktop");
-        m_desktop_fix->draw("Enabled");
+        m_desktop_fix->draw(REF_LANG_ENABLED);
         m_desktop_fix_skip_present->draw("Skip Present");
         ImGui::PopID();
         ImGui::TreePop();

@@ -30,7 +30,7 @@ class VR : public Mod {
 public:
     static std::shared_ptr<VR>& get();
 
-    std::string_view get_name() const override { return "VR"; }
+    std::string_view get_name() const override { return "VR " REF_LANG_VR; }
 
     // Called when the mod is initialized
     std::optional<std::string> on_initialize() override;

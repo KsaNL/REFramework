@@ -17,6 +17,7 @@ class RETypes;
 #include "DInputHook.hpp"
 #include "WindowsMessageHook.hpp"
 
+#include "REFramework_language.h"
 // Global facilitator
 class REFramework {
 private:

@@ -6,7 +6,7 @@
 
 class Graphics : public Mod {
 public:
-    std::string_view get_name() const override { return "Graphics"; };
+    std::string_view get_name() const override { return "Graphics " REF_LANG_GRAPHICS; };
 
     void on_config_load(const utility::Config& cfg) override;
     void on_config_save(utility::Config& cfg) override;

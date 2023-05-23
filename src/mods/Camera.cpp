@@ -25,7 +25,7 @@ void Camera::on_draw_ui() {
 
     ImGui::TextWrapped("Make sure to tick \"Enabled\" for any of the below settings to take effect.");
 
-    if (m_enabled->draw("Enabled") && !m_enabled->value()) {
+    if (m_enabled->draw(REF_LANG_ENABLED) && !m_enabled->value()) {
         on_disabled();
     }
 

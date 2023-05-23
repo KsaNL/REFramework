@@ -9,7 +9,7 @@ class FreeCam : public Mod {
 public:
     FreeCam() = default;
 
-    std::string_view get_name() const override { return "FreeCam"; }
+    std::string_view get_name() const override { return "FreeCam " REF_LANG_FREECAM; }
 
     void on_config_load(const utility::Config& cfg) override;
     void on_config_save(utility::Config& cfg) override;
@@ -22,7 +22,7 @@ public:
 private:
     bool update_pointers();
 
-    const ModToggle::Ptr m_enabled{              ModToggle::create(generate_name("Enabled"), false) };
+    const ModToggle::Ptr m_enabled{              ModToggle::create(generate_name(REF_LANG_ENABLED), false) };
     const ModToggle::Ptr m_lock_camera{          ModToggle::create(generate_name("LockPosition"), false) };
     const ModToggle::Ptr m_disable_movement{     ModToggle::create(generate_name("DisableMovement"), false) };
     const ModKey::Ptr m_toggle_key{              ModKey::create(generate_name("ToggleKey_V2")) };

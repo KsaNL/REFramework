@@ -90,7 +90,7 @@ void FirstPerson::on_draw_ui() {
         ImGui::DragFloat4("##", (float*)&elem, 1.0f, -1.0f, 1.0f);
     }*/
 
-    if (m_enabled->draw("Enabled")) {
+    if (m_enabled->draw(REF_LANG_ENABLED)) {
         // Disable fov and camera light changes
         m_wants_disable = !m_enabled->value();
     }

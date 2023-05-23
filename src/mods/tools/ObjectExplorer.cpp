@@ -339,7 +339,7 @@ void ObjectExplorer::on_draw_dev_ui() {
         m_do_init = false;
     }
 
-    if (!m_do_init && !ImGui::CollapsingHeader(get_name().data())) {
+    if (!m_do_init && !ImGui::TreeNode(get_name().data())) {
         return;
     }
     if (ImGui::Button("Dump SDK")) {
@@ -398,7 +398,7 @@ void ObjectExplorer::on_draw_dev_ui() {
     auto curtime = std::chrono::system_clock::now();
 
     // List of globals to choose from
-    if (ImGui::CollapsingHeader("Singletons")) {
+    if (ImGui::CollapsingHeader("Singletons" REF_LANG_SINGLETONS)) {
         if (curtime > m_next_refresh) {
             reframework::get_globals()->safe_refresh();
             m_next_refresh = curtime + std::chrono::seconds(1);
@@ -443,7 +443,7 @@ void ObjectExplorer::on_draw_dev_ui() {
         }
     }
 
-    if (ImGui::CollapsingHeader("Native Singletons")) {
+    if (ImGui::CollapsingHeader("Native Singletons " REF_LANG_NATIVESINGLETONS)) {
         auto& native_singletons = reframework::get_globals()->get_native_singleton_types();
 
         // Display the nodes
@@ -461,7 +461,7 @@ void ObjectExplorer::on_draw_dev_ui() {
         }
     }
 
-    if (ImGui::CollapsingHeader("Renderer")) {
+    if (ImGui::CollapsingHeader("Renderer " REF_LANG_RENDERER)) {
         auto root_layer = sdk::renderer::get_root_layer();
         ImGui::Text("Root layer: 0x%p", root_layer);
 
@@ -484,7 +484,7 @@ void ObjectExplorer::on_draw_dev_ui() {
         }
     }
 
-    if (ImGui::CollapsingHeader("Types")) {
+    if (ImGui::CollapsingHeader("Types " REF_LANG_TYPES)) {
         std::vector<uint8_t> fake_type{ 0 };
 
         for (const auto& name : m_sorted_types) {
@@ -602,8 +602,9 @@ void ObjectExplorer::on_draw_dev_ui() {
         memset(fake_type.data(), 0, t->size);
         handle_type((REManagedObject*)fake_type.data(), t);
     }
-
     m_do_init = false;
+
+    ImGui::TreePop();
 }
 
 void ObjectExplorer::on_frame() {

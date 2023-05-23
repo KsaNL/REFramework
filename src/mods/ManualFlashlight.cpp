@@ -27,7 +27,7 @@ void ManualFlashlight::on_draw_ui() {
         return;
     }
 
-    if (m_enabled->draw("Enabled") && !m_enabled->value()) {
+    if (m_enabled->draw(REF_LANG_ENABLED) && !m_enabled->value()) {
         on_disabled();
     }
 

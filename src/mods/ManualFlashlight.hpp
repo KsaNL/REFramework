@@ -27,7 +27,7 @@ public:
     
     void toggle_flashlight();
     
-    std::string_view get_name() const override { return "ManualFlashlight"; }
+    std::string_view get_name() const override { return "ManualFlashlight " REF_LANG_MANUALFLASHLIGHT; }
 
     void on_frame() override;
     void on_draw_ui() override;
@@ -40,7 +40,7 @@ public:
 private:
     // keys need to be directinput unfortunately. window messages for windows virtual keys get blocked
     const ModKey::Ptr m_key{ ModKey::create(generate_name("Key_V2"), VkKeyScan('f')) };
-    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name("Enabled"), false) };
+    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name(REF_LANG_ENABLED), false) };
 
 #ifdef RE8
     const ModToggle::Ptr m_light_ignore_power_on_zones{ ModToggle::create(generate_name("IgnorePowerOnZones"), false) };

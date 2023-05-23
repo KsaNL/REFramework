@@ -8,7 +8,7 @@ class SceneMods : public Mod {
 public:
     SceneMods() = default;
 
-    std::string_view get_name() const override { return "Scene"; }
+    std::string_view get_name() const override { return "Scene " REF_LANG_SCENE; }
 
     std::optional<std::string> on_initialize() override;
 

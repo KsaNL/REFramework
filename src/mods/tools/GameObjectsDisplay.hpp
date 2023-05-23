@@ -4,9 +4,7 @@
 
 class GameObjectsDisplay : public Tool {
 public:
-    std::string_view get_name() const override {
-        return "GameObjectsDisplay";
-    }
+    std::string_view get_name() const override { return "GameObjectsDisplay " REF_LANG_GAMEOBJECTSDISPLAY; }
     
     std::optional<std::string> on_initialize() override;
     void on_config_load(const utility::Config& cfg) override;
@@ -16,7 +14,7 @@ public:
     void on_frame() override;
 
 private:
-    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name("Enabled")) };
+    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name(REF_LANG_ENABLED)) };
 
     ValueList m_options{
         *m_enabled,

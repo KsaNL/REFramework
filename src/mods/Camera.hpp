@@ -56,7 +56,7 @@ public:
 
 class Camera : public Mod {
 public:
-    std::string_view get_name() const override { return "Camera"; };
+    std::string_view get_name() const override { return "Camera " REF_LANG_CAMERA; };
 
     void on_config_load(const utility::Config& cfg) override;
     void on_config_save(utility::Config& cfg) override;
@@ -68,7 +68,7 @@ public:
     void on_application_entry(void* entry, const char* name, size_t hash) override;
 
 private:
-    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name("Enabled"), false) };
+    const ModToggle::Ptr m_enabled{ ModToggle::create(generate_name(REF_LANG_ENABLED), false) };
     const ModToggle::Ptr m_disable_vignette{ ModToggle::create(generate_name("DisableVignette"), true) };
     const ModSlider::Ptr m_vignette_brightness{ ModSlider::create(generate_name("VignetteBrightness"), -1.0, 1.0, 0.0f ) };
 

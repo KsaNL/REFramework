@@ -21,6 +21,7 @@
 #include "bindings/FS.hpp"
 
 #include "ScriptRunner.hpp"
+#include "REFramework_language.h"
 
 #include <lstate.h> // weird include order because of sol
 #include <lgc.h>
@@ -372,7 +373,7 @@ void ScriptState::on_frame() {
 }
 
 void ScriptState::on_draw_ui() {
-    if (!ImGui::CollapsingHeader("Script Generated UI")) {
+    if (!ImGui::CollapsingHeader("Script Generated UI " REF_LANG_SCRIPTUI)) {
         return;
     }
 

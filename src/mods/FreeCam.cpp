@@ -42,7 +42,7 @@ void FreeCam::on_draw_ui() {
         return;
     }
 
-    if (m_enabled->draw("Enabled")) {
+    if (m_enabled->draw(REF_LANG_ENABLED)) {
         m_first_time = true;
     }
 

@@ -46,7 +46,7 @@ std::optional<std::string> Hooks::on_initialize() {
 }
 
 void Hooks::on_draw_ui() {
-    if (!ImGui::CollapsingHeader("Performance")) {
+    if (!ImGui::CollapsingHeader("Performance " REF_LANG_PERFORMANCE)) {
         return;
     }
 

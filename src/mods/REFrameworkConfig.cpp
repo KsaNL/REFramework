@@ -12,7 +12,7 @@ std::optional<std::string> REFrameworkConfig::on_initialize() {
 }
 
 void REFrameworkConfig::on_draw_ui() {
-    if (!ImGui::CollapsingHeader("Configuration")) {
+    if (!ImGui::CollapsingHeader("Configuration " REF_LANG_CONFIGURATION)) {
         return;
     }
 

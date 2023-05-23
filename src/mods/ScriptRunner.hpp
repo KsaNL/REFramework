@@ -188,7 +188,7 @@ class ScriptRunner : public Mod {
 public:
     static std::shared_ptr<ScriptRunner>& get();
 
-    std::string_view get_name() const override { return "ScriptRunner"; }
+    std::string_view get_name() const override { return "ScriptRunner " REF_LANG_SCRIPTRUNNER; }
     std::optional<std::string> on_initialize() override;
     void on_config_load(const utility::Config& cfg) override;
     void on_config_save(utility::Config& cfg) override;
