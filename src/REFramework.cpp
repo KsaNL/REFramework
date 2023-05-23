@@ -304,8 +304,6 @@ REFramework::REFramework(HMODULE reframework_module)
     // Fixes new code added in RE4 only.
     IntegrityCheckBypass::immediate_patch_re4();
 
-    // Only re4 is in need sometimes
-    IntegrityCheckBypass::immediate_patch_stack();
 #endif
     suspender.resume();
 #endif
