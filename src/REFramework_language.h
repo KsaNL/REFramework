@@ -1,4 +1,4 @@
-﻿//#define REF_LANG_CN // ChineseSimplified 
+﻿#define REF_LANG_CN // ChineseSimplified 
 //#define REF_LANG_TW // Chinese 
 //#define REF_LANG_JP // Japanese
 
@@ -13,7 +13,7 @@
 #define REF_LANG_VR "虚拟设备"
 #define REF_LANG_CAMERA "相机"
 #define REF_LANG_GRAPHICS "图形"
-#define REF_LANG_FREECAM "视角"
+#define REF_LANG_FREECAM "视角冻结"
 #define REF_LANG_SCENE "场景"
 #define REF_LANG_MANUALFLASHLIGHT "手电筒"
 #define REF_LANG_FIRSTPERSON "第一人称"
@@ -38,7 +38,7 @@
 #define REF_LANG_VR "虛擬設備"
 #define REF_LANG_CAMERA "相機"
 #define REF_LANG_GRAPHICS "圖形"
-#define REF_LANG_FREECAM "視角"
+#define REF_LANG_FREECAM "視角凍結"
 #define REF_LANG_SCENE "場景"
 #define REF_LANG_MANUALFLASHLIGHT "手電筒"
 #define REF_LANG_FIRSTPERSON "第一人稱"
@@ -63,7 +63,7 @@
 #define REF_LANG_VR "仮想デバイス"
 #define REF_LANG_CAMERA "カメラ"
 #define REF_LANG_GRAPHICS "グラフィックス"
-#define REF_LANG_FREECAM "ビューポイント"
+#define REF_LANG_FREECAM "視点の固定"
 #define REF_LANG_SCENE "シーン"
 #define REF_LANG_MANUALFLASHLIGHT "懐中電灯"
 #define REF_LANG_FIRSTPERSON "一人称"
