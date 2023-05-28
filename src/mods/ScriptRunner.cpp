@@ -373,7 +373,7 @@ void ScriptState::on_frame() {
 }
 
 void ScriptState::on_draw_ui() {
-    if (!ImGui::CollapsingHeader("Script Generated UI " REF_LANG_SCRIPTUI)) {
+    if (!ImGui::CollapsingHeader("Script Generated UI")) {
         return;
     }
 
