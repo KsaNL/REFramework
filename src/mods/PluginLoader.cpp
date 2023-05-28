@@ -66,7 +66,9 @@ REFrameworkPluginFunctions g_plugin_functions {
     reframework::log_error,
     reframework::log_warn,
     reframework::log_info,
-    reframework::is_drawing_ui
+    reframework::is_drawing_ui,
+    reframework_create_script_state, 
+    reframework_destroy_script_state,
 };
 
 REFrameworkSDKFunctions g_sdk_functions {
@@ -473,7 +475,20 @@ REFrameworkResourceManager g_resource_manager_data {
 
 REFrameworkResource g_resource_data {
     [](REFrameworkResourceHandle res) { RERESOURCE(res)->add_ref(); },
-    [](REFrameworkResourceHandle res) { RERESOURCE(res)->release(); }
+    [](REFrameworkResourceHandle res) { RERESOURCE(res)->release(); },
+    [](REFrameworkResourceHandle res, const char* type_name) -> REFrameworkManagedObjectHandle {
+        if (type_name == nullptr) {
+            return nullptr;
+        }
+
+        const auto t = sdk::find_type_definition(type_name);
+
+        if (t == nullptr) {
+            return nullptr;
+        }
+
+        return (REFrameworkManagedObjectHandle)RERESOURCE(res)->create_holder(t);
+    }
 };
 
 #define RETYPEINFO(var) ((::REType*)var)
@@ -781,6 +796,20 @@ void PluginLoader::on_draw_ui() {
     }
 }
 
+/// <summary>
+/// Request the creation of a separate script state from the main script state
+/// </summary>
+/// <returns>the lua state of the new script state</returns>
+lua_State* reframework_create_script_state() {
+    return ScriptRunner::get()->create_state();
+}
+/// <summary>
+/// Request the destruction of the script_state belonging to the lua state in question
+/// </summary>
+void reframework_destroy_script_state(lua_State* lua_state) {
+    ScriptRunner::get()->delete_state(lua_state);
+}
+
 bool reframework_on_lua_state_created(REFLuaStateCreatedCb cb) {
     if (cb == nullptr) {
         return false;
@@ -797,6 +826,8 @@ bool reframework_on_lua_state_destroyed(REFLuaStateDestroyedCb cb) {
 
     return APIProxy::get()->add_on_lua_state_destroyed(cb);
 }
+
+
 
 bool reframework_on_present(REFOnPresentCb cb) {
     if (cb == nullptr) {
