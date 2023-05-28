@@ -1024,13 +1024,16 @@ void REFramework::update_fonts() {
     auto& fonts = ImGui::GetIO().Fonts;
     fonts->Clear();
 
-    // using 'reframework_pictographic.mode' file to 
-    // replace '?' to most flag in WorldObjectsViewer
+    ImFont* fsload;
     ImFontConfig custom_icons{}; 
     custom_icons.FontDataOwnedByAtlas = false;
-    ImFont* fsload = (INVALID_FILE_ATTRIBUTES != ::GetFileAttributesA("reframework_pictographic.mode"))
-        ? fonts->AddFontFromMemoryTTF((void*)af_baidu_ptr, af_baidu_size, (float)m_font_size, &custom_icons, fonts->GetGlyphRangesChineseFull())
-        : fonts->AddFontFromMemoryCompressedTTF(RobotoMedium_compressed_data, RobotoMedium_compressed_size, (float)m_font_size);
+    #if defined PICTOGRAPHIC_MODE || REF_LANG_CN || REF_LANG_TW || REF_LANG_JP
+    // using PICTOGRAPHIC_MODE macro to 
+    // replace '?' to most characters in WorldObjectsViewer
+    fsload = fonts->AddFontFromMemoryTTF(af_baidu_ptr, af_baidu_size, (float)m_font_size, &custom_icons, fonts->GetGlyphRangesChineseFull());
+    #else
+    fsload = fonts->AddFontFromMemoryCompressedTTF(RobotoMedium_compressed_data, RobotoMedium_compressed_size, (float)m_font_size);
+    #endif
 
     // https://fontawesome.com/
     custom_icons.PixelSnapH = true;
