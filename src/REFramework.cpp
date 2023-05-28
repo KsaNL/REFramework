@@ -1030,7 +1030,7 @@ void REFramework::update_fonts() {
     #if defined PICTOGRAPHIC_MODE || REF_LANG_CN || REF_LANG_TW || REF_LANG_JP
     // using PICTOGRAPHIC_MODE macro to 
     // replace '?' to most characters in WorldObjectsViewer
-    fsload = fonts->AddFontFromMemoryTTF(af_baidu_ptr, af_baidu_size, (float)m_font_size, &custom_icons, fonts->GetGlyphRangesChineseFull());
+    fsload = fonts->AddFontFromMemoryTTF((void*)af_baidu_ptr, af_baidu_size, (float)m_font_size, &custom_icons, fonts->GetGlyphRangesChineseFull());
     #else
     fsload = fonts->AddFontFromMemoryCompressedTTF(RobotoMedium_compressed_data, RobotoMedium_compressed_size, (float)m_font_size);
     #endif
@@ -1052,7 +1052,7 @@ void REFramework::update_fonts() {
         if (fs::exists(font.filepath)) {
             font.font = fonts->AddFontFromFileTTF(font.filepath.string().c_str(), (float)font.size, nullptr, ranges);
         } else {
-            font.font = fsload; // fonts->AddFontFromMemoryCompressedTTF(RobotoMedium_compressed_data, RobotoMedium_compressed_size, (float)font.size, nullptr, ranges);
+            font.font = fsload;
         }
     }
 
